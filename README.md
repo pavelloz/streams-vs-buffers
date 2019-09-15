@@ -8,9 +8,9 @@ Do following operations on a given csv dataset:
 
 ## Input
 
-Faker seed: 1337
-Rows: 1000000
-Data size: 775264070 (739MB)
+* Faker seed: 1337
+* Rows: 1000000
+* Data size: 775264070 (739MB)
 
 ## Buffers
 
