@@ -30,7 +30,12 @@ const output = data
 
 // console.log('Rows after filtering:\t', output.length);
 
-fs.writeFileSync(__dirname + '/outputBuffer.csv', output.join('\n'));
+fs.writeFileSync(__dirname + '/outputBuffer.csv', `${output.join('\n')}\n`);
+
+const used = process.memoryUsage().heapUsed / 1024 / 1024;
+
+console.log('Memory used: ', parseInt(used, 10), 'MB');
+
 
 performance.mark('End');
 

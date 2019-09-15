@@ -2,9 +2,9 @@
   "name": "streams",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate-data": "node generate-data.js",
+    "experiment": "node buffer.js && node streams.js"
   },
   "keywords": [],
   "author": "Paweł Kowalski <pavelloz@gmail.com>",

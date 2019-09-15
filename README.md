@@ -2,32 +2,54 @@
 
 Do following operations on a given csv dataset:
 
-1) Filter OUT people without email (field #3)
-2) Filter OUT people without phone number (field #5)
-3) Remove any spaces, x, (, ), - from phone number (field #5)
+1. Filter OUT people without email (field #3)
+2. Filter OUT people without phone number (field #5)
+3. Remove any spaces, x, (, ), - from phone number (field #5)
+
+## Input
+
+Faker seed: 1337
+Rows: 1000000
+Data size: 775264070 (739MB)
 
 ## Buffers
 
-1) Load everything to memory
-2) Perform operations
-3) Save to output file
+1. Load everything to memory
+2. Perform operations
+3. Write to output file
+
+Output size: 496410002 (473MB)
+
+| Execution time (ms) | Memory used (MB) |
+| ------------------- | ---------------- |
+| 7600                | 2086             |
 
 ## Streams
 
-1) Stream file to highland
-2) Perform operations
-3) Pass through to the output file
+1. Stream file to highland
+2. Perform operations
+3. Pipe to the output file
 
-## Results
+Output size: 495772785 (473MB)
 
-Faker seed: 1337
-Rows: 100000
-Data size: 74MB
+| Execution time (ms) | Memory used (MB) |
+| ------------------- | ---------------- |
+| 5800                | 12               |
 
-MD5 (data.csv) = af217391cd2b2eea9d0522eb12d80f74
+## Conclusion
 
-### Buffers solution 1
-Output size: 47MB
-MD5 (outputBuffer.csv) = 560bb135928ed170fa5dd9c026a47641
+It looks like when dealing with big files streams are more efficient, especially in the memory department.
 
-Runs: 540 585 526 525 522 510 (avg. 535)
+## Notes
+
+I didnt manage to find any difference between the output files even though file sizes are different.
+
+## Reproduce
+
+If you want to reproduce the experiment:
+
+    npm ci                  # install dependencies
+
+    npm run generate-data   # settings: 1m of rows, 1337 seed
+
+    npm run experiment      # run experiments

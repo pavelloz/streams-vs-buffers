@@ -6,7 +6,7 @@ const faker = require('faker');
 // faker.seed(Math.random() * 10000); // To randomize data generation.
 faker.seed(1337); // To test consistently on similar dataset (it will vary slightly because of randomizations in row logic).
 
-const rowsNumber = 100000;
+const rowsNumber = 1000000; // 1m of rows took ~2 minutes on my machine.
 
 const f = faker;
 const rows = [];
