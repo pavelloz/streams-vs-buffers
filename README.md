@@ -29,3 +29,5 @@ MD5 (data.csv) = af217391cd2b2eea9d0522eb12d80f74
 ### Buffers solution 1
 Output size: 47MB
 MD5 (outputBuffer.csv) = 560bb135928ed170fa5dd9c026a47641
+
+Runs: 540 585 526 525 522 510 (avg. 535)
