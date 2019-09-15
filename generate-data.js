@@ -3,10 +3,13 @@
 const fs = require('fs');
 const faker = require('faker');
 
-// faker.seed(Math.random() * 10000); // To randomize data generation.
-faker.seed(1337); // To test consistently on similar dataset (it will vary slightly because of randomizations in row logic).
+const seed = 1337;
+
+faker.seed(seed); // To test consistently on similar dataset (it will vary slightly because of randomizations in row logic).
 
 const rowsNumber = 1000000; // 1m of rows took ~2 minutes on my machine.
+
+console.log('Generating', rowsNumber, 'rows with faker seed:', seed);
 
 const f = faker;
 const rows = [];
@@ -33,4 +36,4 @@ for (let i = 0; i < rowsNumber; i++) {
 
 fs.writeFileSync(__dirname + '/data.csv', rows.join('\n'));
 
-console.log('Data generated to data.csv');
+console.log('Data saved to data.csv');
