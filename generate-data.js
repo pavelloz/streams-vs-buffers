@@ -7,7 +7,10 @@ const seed = 1337;
 
 faker.seed(seed); // To test consistently on similar dataset (it will vary slightly because of randomizations in row logic).
 
-const rowsNumber = 1000000; // 1m of rows took ~2 minutes on my machine.
+// Note:
+//  In node 16 there was imposed lower limit on buffer size, so 1m will throw error by default.
+//  Hence i changed default number of rows to 500k to avoid causing you troubles.
+const rowsNumber = 500000; // 1m of rows took ~2 minutes on my machine.
 
 console.log('Generating', rowsNumber, 'rows with faker seed:', seed);
 
